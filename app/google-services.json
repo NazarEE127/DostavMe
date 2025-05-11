@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "498243311574",
+    "project_id": "dostavme",
+    "storage_bucket": "dostavme.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:498243311574:android:704df2a7e7b13212b6f677",
+        "android_client_info": {
+          "package_name": "com.example.dostavme"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCm_oKCR4MLzubPi-3JMcELA0tCB0xzGls"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

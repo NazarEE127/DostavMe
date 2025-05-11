@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.dostavme">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <application
+        android:name=".DostavMeApp"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.DostavMe">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".CourierMapActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".CourierProfileActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".OrderHistoryActivity"
+            android:label="История заказов"
+            android:parentActivityName=".MainActivity" />
+
+        <activity
+            android:name=".CreateOrderActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".SettingsActivity"
+            android:label="Настройки"
+            android:parentActivityName=".MainActivity" />
+
+        <activity
+            android:name=".RateOrderActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".CourierActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ClientActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ClientProfileActivity"
+            android:exported="false"
+            android:label="Профиль клиента" />
+
+        <activity
+            android:name=".OrderDetailsActivity" />
+
+        <activity
+            android:name=".MapPickerActivity" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAzhJs-H-Gy9Keg2_ueM0LKB6zsouXVRyo" />
+
+        <service
+            android:name=".services.NotificationService"
+            android:exported="false" />
+
+    </application>
+</manifest> 

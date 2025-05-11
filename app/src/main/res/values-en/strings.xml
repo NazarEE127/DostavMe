@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DostavMe</string>
+    
+    <!-- Common strings -->
+    <string name="error">Error</string>
+    <string name="success">Success</string>
+    <string name="loading">Loading…</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    
+    <!-- Authorization -->
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="phone">Phone</string>
+    <string name="name">Name</string>
+    
+    <!-- Profile -->
+    <string name="profile">Profile</string>
+    <string name="balance">Balance</string>
+    <string name="rating">Rating</string>
+    <string name="completed_orders">Completed Orders</string>
+    <string name="withdraw">Withdraw Funds</string>
+    <string name="order_history">Order History</string>
+    <string name="settings">Settings</string>
+    <string name="logout">Logout</string>
+    
+    <!-- Orders -->
+    <string name="create_order">Create Order</string>
+    <string name="from_address">Pickup Address</string>
+    <string name="to_address">Delivery Address</string>
+    <string name="weight">Weight (kg)</string>
+    <string name="description">Description</string>
+    <string name="payment_method">Payment Method</string>
+    <string name="cash">Cash</string>
+    <string name="card">Card</string>
+    <string name="price">Price</string>
+    <string name="status">Status</string>
+    
+    <!-- Notifications -->
+    <string name="new_order">New Order</string>
+    <string name="order_accepted">Order Accepted</string>
+    <string name="order_completed">Order Completed</string>
+    <string name="order_cancelled">Order Cancelled</string>
+    
+    <!-- Settings -->
+    <string name="language">Language</string>
+    <string name="theme">Theme</string>
+    <string name="notifications">Notifications</string>
+    <string name="dark_theme">Dark Theme</string>
+    <string name="light_theme">Light Theme</string>
+    <string name="system_theme">System Theme</string>
+</resources> 
