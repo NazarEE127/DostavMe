@@ -19,7 +19,6 @@ public class ClientProfileActivity extends AppCompatActivity {
     private TextView tvOrderHistory;
     private Button btnCreateOrder;
     private Button btnOrderHistory;
-    private Button btnSettings;
     private Button btnLogout;
     private DatabaseHelper dbHelper;
     private SessionManager sessionManager;
@@ -61,7 +60,6 @@ public class ClientProfileActivity extends AppCompatActivity {
         tvOrderHistory = findViewById(R.id.tvOrderHistory);
         btnCreateOrder = findViewById(R.id.btnCreateOrder);
         btnOrderHistory = findViewById(R.id.btnOrderHistory);
-        btnSettings = findViewById(R.id.btnSettings);
         btnLogout = findViewById(R.id.btnLogout);
     }
 
@@ -76,10 +74,6 @@ public class ClientProfileActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        btnSettings.setOnClickListener(v -> {
-            Intent intent = new Intent(this, SettingsActivity.class);
-            startActivity(intent);
-        });
 
         btnLogout.setOnClickListener(v -> {
             sessionManager.logout();
@@ -92,12 +86,12 @@ public class ClientProfileActivity extends AppCompatActivity {
 
     private void loadProfileData() {
         if (currentUser != null) {
-            tvFullName.setText(currentUser.getFullName());
-            tvPhone.setText(currentUser.getPhone());
-            tvEmail.setText(currentUser.getEmail());
+            tvFullName.setText("ФИО: " + currentUser.getFullName());
+            tvPhone.setText("Номер телефона: " + currentUser.getPhone());
+            tvEmail.setText("Email: " + currentUser.getEmail());
             
             int completedOrders = dbHelper.getCompletedOrdersCount(currentUser.getId());
-            tvOrderHistory.setText("Выполнено заказов: " + completedOrders);
+            tvOrderHistory.setText("Завершено заказов: " + completedOrders);
         }
     }
 

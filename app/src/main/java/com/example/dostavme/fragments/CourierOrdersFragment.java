@@ -48,17 +48,7 @@ public class CourierOrdersFragment extends Fragment implements OrderAdapter.OnOr
     }
 
     private void setupRecyclerView() {
-        adapter = new OrderAdapter(new ArrayList<>(), order -> {
-            if (order.getStatus().equals("new")) {
-                boolean success = dbHelper.assignCourierToOrder(order.getId(), sessionManager.getUserId());
-                if (success) {
-                    loadOrders();
-                    Toast.makeText(requireContext(), "Заказ принят", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(requireContext(), "Не удалось принять заказ", Toast.LENGTH_SHORT).show();
-                }
-            }
-        }, true);
+        adapter = new OrderAdapter(new ArrayList<>(), this, true);
         
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
         recyclerView.setAdapter(adapter);

@@ -41,13 +41,6 @@
             android:layout_marginBottom="8dp" />
 
         <TextView
-            android:id="@+id/tvCity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:layout_marginBottom="16dp" />
-
-        <TextView
             android:id="@+id/tvRating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -70,12 +63,6 @@
             android:textColor="@android:color/holo_green_dark"
             android:layout_marginBottom="16dp" />
 
-        <com.google.android.gms.maps.MapView
-            android:id="@+id/mapView"
-            android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:layout_marginBottom="16dp" />
-
         <Button
             android:id="@+id/btnWithdraw"
             android:layout_width="match_parent"
@@ -88,13 +75,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="История заказов"
-            android:layout_marginBottom="16dp" />
-
-        <Button
-            android:id="@+id/btnSettings"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Настройки"
             android:layout_marginBottom="16dp" />
 
         <Button

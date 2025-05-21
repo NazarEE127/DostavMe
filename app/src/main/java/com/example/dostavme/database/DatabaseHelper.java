@@ -553,7 +553,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 Order order = getOrder(orderId);
                 if (order != null) {
                     double courierPayment = order.getPrice();
-                    updateCourierBalance(courierId, courierPayment);
+                    updateCourierBalance(courierId, 120.0);
                     Log.d(TAG, "completeOrder: начислено курьеру " + courierPayment + " руб.");
                 }
                 return true;

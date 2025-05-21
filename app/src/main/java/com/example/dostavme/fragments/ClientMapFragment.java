@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -37,14 +38,22 @@ public class ClientMapFragment extends Fragment implements OnMapReadyCallback {
     private DatabaseHelper dbHelper;
     private SessionManager sessionManager;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
+    private ImageButton btnZoomIn, btnZoomOut, btnMyLocation;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_client_map, container, false);
         dbHelper = new DatabaseHelper(requireContext());
         sessionManager = new SessionManager(requireContext());
+        
+        View mapControls = view.findViewById(R.id.mapControls);
+        btnZoomIn = mapControls.findViewById(R.id.btnZoomIn);
+        btnZoomOut = mapControls.findViewById(R.id.btnZoomOut);
+        btnMyLocation = mapControls.findViewById(R.id.btnMyLocation);
+        
         Button btnCreateOrder = view.findViewById(R.id.btnCreateOrder);
         btnCreateOrder.setOnClickListener(v -> showCreateOrderDialog());
+        
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager()
                 .findFragmentById(R.id.map);
         if (mapFragment != null) {
@@ -73,6 +82,8 @@ public class ClientMapFragment extends Fragment implements OnMapReadyCallback {
             return;
         }
         mMap.setMyLocationEnabled(true);
+        setupMapControls();
+        
         fusedLocationClient.getLastLocation()
                 .addOnSuccessListener(requireActivity(), location -> {
                     if (location != null) {
@@ -80,6 +91,35 @@ public class ClientMapFragment extends Fragment implements OnMapReadyCallback {
                         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLocation, 15));
                     }
                 });
+    }
+
+    private void setupMapControls() {
+        btnZoomIn.setOnClickListener(v -> {
+            if (mMap != null) {
+                mMap.animateCamera(CameraUpdateFactory.zoomIn());
+            }
+        });
+
+        btnZoomOut.setOnClickListener(v -> {
+            if (mMap != null) {
+                mMap.animateCamera(CameraUpdateFactory.zoomOut());
+            }
+        });
+
+        btnMyLocation.setOnClickListener(v -> {
+            if (ActivityCompat.checkSelfPermission(requireContext(), 
+                    Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                fusedLocationClient.getLastLocation()
+                        .addOnSuccessListener(requireActivity(), location -> {
+                            if (location != null) {
+                                LatLng userLocation = new LatLng(
+                                        location.getLatitude(), 
+                                        location.getLongitude());
+                                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(userLocation, 15));
+                            }
+                        });
+            }
+        });
     }
 
     @Override
